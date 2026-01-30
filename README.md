@@ -5,7 +5,7 @@ Three Tier Architecture
 - Data tier
 
  
---> Website Delivery with CloudFront <-- (Presenation tier)
+1. --> Website Delivery with CloudFront <-- (Presenation tier)
 
 
 
@@ -21,6 +21,19 @@ Step 1: Set Up an S3 Bucket
 s3 console -> create bucket -> bucket name -> create
 
 Step 2: Upload Website Files
+s3 console -> Upload 3 files(html,css,js)
+
+Step 3: Set Up a CloudFront Distribution
+CloudFront console -> Select Create a CloudFront distribution -> Distribution name -> Distribution type, select the Single website or app option -> Origin panel, select the Browse S3 button -> Web Application Firewall (WAF), select Do not enable security protections -> Create distribution.
+
+Step 4: Verify your CloudFront Distribution
+Copy the distribution domain name -> Paste it on browser -> Error "site cant be reached".
+
+Step 5: Update your CloudFront settings
+CloudFront console -> Origins -> se;ect your bucket -> Change the setting from Public to Origin access control settings -> new Origin access control heading, select Create new OAC -> 
+
+Step 6: Update your S3 bucket's settings
+CloudFront distribution's settings page, select Copy policy -> S3 bucket's Permissions tab -> Bucket policy section -> paste -> save -> Check url NOw its working.
 
 
 
