@@ -37,3 +37,15 @@ CloudFront distribution's settings page, select Copy policy -> S3 bucket's Permi
 
 
 
+2. --> APIs with Lambda + API Gateway <-- 
+
+In this project,
+- Develop a serverless Lambda function.
+- Configure an API with API Gateway.
+- Connect Lambda with API Gateway.
+- Write JSON documentation for your API.
+
+Logic Tier :  User -> API Gateway (GET Method) -> Lambda
+
+Step 1: Create a Lambda Function.
+Lambda console -> create a function -> Author from scratch -> enter func name -> Runtime, Node.js -> Architecture, x86_64 -> create Function -> Down to the Code source panel -> copy and paste code -> deploy.
