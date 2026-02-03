@@ -49,15 +49,20 @@ Logic Tier :  User -> API Gateway (GET Method) -> Lambda
 
 Step 1: Create a Lambda Function.
 Lambda console -> create a function -> Author from scratch -> enter func name -> Runtime, Node.js -> Architecture, x86_64 -> create Function -> Down to the Code source panel -> copy and paste code -> deploy.
+
 Step 2: Set up API Gateway.
 API Gateway console -> list of APIs -> REST API -> Build -> API details, New API -> API name -- API endpoint type, Regional -> create API.
+
 Step 3: Set up an API Resource. 
 Resources, Create resource -> name 'users' -> Create resource -> Select /users resource.
+
 Step 4: Set up an API Method. (GET, POST, PUT, DELETE)
 Methods panel, Create method -> GET from Methodtype dropdown -> Lambda Function for the Integration type -> Switch on Lambda proxy integration -> select RetrieveUserData function -> create method.
+
 Step 5: Deploy your API
 Select Deploy API -> Stage, New stage -> Stage name, prod -> select deploy
 Find invoke URL & check.
+
 
 
 
