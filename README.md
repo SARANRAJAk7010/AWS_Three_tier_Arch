@@ -37,7 +37,7 @@ CloudFront distribution's settings page, select Copy policy -> S3 bucket's Permi
 
 
 
-2. --> APIs with Lambda + API Gateway <-- 
+2. --> APIs with Lambda + API Gateway <--  (LOgic tier)
 
 In this project,
 - Develop a serverless Lambda function.
@@ -63,6 +63,44 @@ Step 5: Deploy your API
 Select Deploy API -> Stage, New stage -> Stage name, prod -> select deploy
 Find invoke URL & check.
 
+
+3. --> Fetch Data with AWS Lambda <--  (data tier)
+
+In this project,
+- Create a database table to store user data.
+- Create a serverless function to retrieve user data.
+- Write tests to validate if your function can fetch data from DynamoDB.
+- Secure your serverless function with proper permissions.
+- Secure your database with an inline policy
+
+(Setup) DynamoDB table -> Add table items -> Lambda func -> Add func code --> (Test) test Lanmba func --> (Troubleshoting) Update Lambdas IAM role --> (Output) Lambda func retreice data.
+
+Step 1: Set up DynamoDB
+Dynamo DB console -> Create table -> Table name, UserData -> Partition key, userId -> 'String' as partition type -> Create table.
+
+Step 2: Add a Table Item
+select UserData table -> Explore table items -> Create item -> Select 'Switch to JSON view' -> Toggle off 'View DynamoDB JSON' -> paste below 
+{
+  "userId": "1",
+  "name": "Test User",
+  "email": "test@example.com"
+}
+-> create item.
+
+Step 3: Create the Lambda Function
+Lambda service -> create func -> Author fromm Scratch -> Func name, RetrieveUserData -> Runtime, Node.js -> Expand the Change default execution role arrow -> Keep Create a new role with basic Lambda permissions -> Create Function.
+
+Step 4: Implement the Lambda Function Logic
+Lambda code editor -> copy & paste the code -> Deploy
+
+Step 5: Write a Lambda Function Test
+Still in the Lambda func, Test tab -> Event JSON panel, paste below-> 
+{
+  "userId": "1"
+}
+
+Step 6: Grant DynamoDB Access to Lambda
+switch configuration tab in lambda func -> Permissions -> select execution role like retreiveUSeXXXXXXXX -> Add Permissions -> Attach Policies -> Type DynamoDB -> select AmazonDynamoDBReadOnlyAccess -> Add permissions.
 
 
 
