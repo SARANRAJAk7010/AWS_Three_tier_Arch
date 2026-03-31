@@ -61,7 +61,8 @@ Methods panel, Create method -> GET from Methodtype dropdown -> Lambda Function 
 
 Step 5: Deploy your API
 Select Deploy API -> Stage, New stage -> Stage name, prod -> select deploy
-Find invoke URL & check.
+Find invoke URL & check.    
+Error : Expected, Still DB cant created yet.
 
 
 3. --> Fetch Data with AWS Lambda <--  (data tier)
